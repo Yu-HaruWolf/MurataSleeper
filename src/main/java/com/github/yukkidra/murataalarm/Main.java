@@ -47,7 +47,7 @@ public class Main {
             }
         };
         timer.schedule(muteTask, simpleDateFormat.parse("01:00"));//1時にミュート
-        timer.schedule(unmuteTask, simpleDateFormat.parse("05:00"));//5時にミュート
+        timer.schedule(unmuteTask, simpleDateFormat.parse("05:00"));//5時にミュート解除
     }
 
 }
