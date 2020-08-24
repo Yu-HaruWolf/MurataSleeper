@@ -22,6 +22,7 @@ public class Main {
         //初期設定(きれいにしたい)
         String token = args[0];
         DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
+        System.out.println("Logged in!");
         String userId = args[2];
         CompletableFuture<User> CFuser = api.getUserById(userId);
         User user = null;
@@ -47,14 +48,14 @@ public class Main {
             @Override
             public void run() {
                 finalUser.mute(api.getServerById(args[1]).get());//disconnectがあれば理想的だった
-                calendar.setTime(new Date());
-                calendar.add(Calendar.DAY_OF_MONTH,1);
+                System.out.println("Mute Executed!");
             }
         };
         TimerTask unmuteTask = new TimerTask() {
             @Override
             public void run() {
                 finalUser.unmute(api.getServerById(args[1]).get());
+                System.out.println("UnMute Executed!");
             }
         };
         //1時ミュート初期設定
