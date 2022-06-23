@@ -3,18 +3,19 @@ plugins {
 }
 
 group 'com.github.yukkidra'
-def jdaVersion = '4.2.0_168'
+def jdaVersion = '4.4.0_352'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    jcenter()
+    maven {
+        url "https://m2.dv8tion.net/releases"
+    }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile "net.dv8tion:JDA:$jdaVersion"
-    compile("ch.qos.logback:logback-classic:1.2.3")
+    implementation("net.dv8tion:JDA:$jdaVersion")
+    implementation('ch.qos.logback:logback-classic:1.2.11')
 }
 
 compileJava.options.encoding = 'UTF-8'
